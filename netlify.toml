@@ -1,0 +1,45 @@
+# Netlify configuration
+
+[build]
+  publish = "."
+
+# Redirects for old Wix URLs (SEO preservation)
+[[redirects]]
+  from = "/en"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/en/owners"
+  to = "/owners.html"
+  status = 301
+
+[[redirects]]
+  from = "/en/travelers"
+  to = "/travelers.html"
+  status = 301
+
+# Clean URLs (optional - access pages without .html)
+[[redirects]]
+  from = "/owners"
+  to = "/owners.html"
+  status = 200
+
+[[redirects]]
+  from = "/travelers"
+  to = "/travelers.html"
+  status = 200
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+
+# Cache images for 1 year
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
