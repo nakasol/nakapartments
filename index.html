@@ -78,7 +78,7 @@
     }
   </style>
 </head>
-<body class="lang-it font-sans bg-white text-brand-text text-base">
+<body class="lang-it font-sans bg-white text-brand-text text-lg">
 
   <!-- Header -->
   <header class="bg-white py-6">
@@ -91,7 +91,7 @@
       <div class="flex items-center gap-6">
         <!-- Language Dropdown -->
         <div class="relative">
-          <select onchange="setLang(this.value)" id="langSelect" class="appearance-none bg-white border border-gray-300 rounded px-4 py-2 pr-8 text-base cursor-pointer focus:outline-none">
+          <select onchange="setLang(this.value)" id="langSelect" class="appearance-none bg-white border border-gray-300 rounded px-4 py-2 pr-8 text-lg cursor-pointer focus:outline-none">
             <option value="it">IT</option>
             <option value="en">EN</option>
           </select>
@@ -144,8 +144,8 @@
     <h1 class="font-display text-5xl md:text-7xl text-brand-dark mb-3 tracking-tight">
       NaKaApartments
     </h1>
-    <p class="text-base tracking-[0.3em] text-brand-text uppercase">
-      Property Management e Affitti Brevi
+    <p class="text-lg tracking-[0.3em] text-brand-text uppercase">
+      Property Management &<br class="md:hidden"> Affitti Brevi
     </p>
   </section>
 
@@ -154,11 +154,11 @@
     <!-- Left: Text Content -->
     <div class="lg:w-1/2 bg-brand-tan flex items-center justify-center p-12 lg:p-16 min-h-[400px] lg:min-h-[500px]">
       <div class="max-w-md text-center">
-        <p class="text-base text-white/90 leading-relaxed mb-10">
+        <p class="text-lg text-white/90 leading-relaxed mb-10">
           <span class="it">Benvenuti a NaKaApartments – Il tuo partner di fiducia nella gestione di proprietà e affitti per vacanze. Che tu sia un proprietario in cerca di una gestione completa oppure un viaggiatore in cerca del soggiorno perfetto, abbiamo la soluzione giusta per te.</span>
           <span class="en">Welcome to NaKaApartments – Your trusted partner in property management and vacation rentals. Whether you are an owner looking for full management or a traveler looking for the perfect stay, we have the right solution for you.</span>
         </p>
-        <a href="#services" class="inline-block px-10 py-3 border border-white/80 text-white text-base tracking-wide hover:bg-white hover:text-brand-tan transition-colors">
+        <a href="#services" class="inline-block px-10 py-3 border border-white/80 text-white text-lg tracking-wide hover:bg-white hover:text-brand-tan transition-colors">
           <span class="it">Scopri di più</span>
           <span class="en">Find out more</span>
         </a>
@@ -179,7 +179,7 @@
       </div>
       
       <!-- Gallery counter -->
-      <div class="absolute bottom-4 right-4 bg-black/60 text-white text-sm px-3 py-1 rounded">
+      <div class="absolute bottom-4 right-4 bg-black/60 text-white text-base px-3 py-1 rounded">
         <span id="slideNum">1</span>/<span id="totalSlides">8</span>
       </div>
     </div>
@@ -219,7 +219,7 @@
         <span class="en">Services</span>
       </h2>
       <div class="w-16 h-0.5 bg-brand-dark mb-3 mx-auto"></div>
-      <p class="text-base text-brand-text">
+      <p class="text-lg text-brand-text">
         <span class="it">Su misura per te</span>
         <span class="en">Tailored for you</span>
       </p>
@@ -236,7 +236,7 @@
             <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
           </svg>
         </div>
-        <h3 class="text-base text-brand-dark underline underline-offset-4 group-hover:text-brand-olive transition-colors">
+        <h3 class="text-lg text-brand-dark underline underline-offset-4 group-hover:text-brand-olive transition-colors">
           <span class="it">Proprietari di casa</span>
           <span class="en">Property Owners</span>
         </h3>
@@ -250,7 +250,7 @@
             <path d="M3 12h18M12 3c2 2.5 3 5.5 3 9s-1 6.5-3 9c-2-2.5-3-5.5-3-9s1-6.5 3-9z"/>
           </svg>
         </div>
-        <h3 class="text-base text-brand-dark underline underline-offset-4 group-hover:text-brand-olive transition-colors">
+        <h3 class="text-lg text-brand-dark underline underline-offset-4 group-hover:text-brand-olive transition-colors">
           <span class="it">Viaggiatori</span>
           <span class="en">Travelers</span>
         </h3>
@@ -261,14 +261,14 @@
   <!-- Testimonial Section -->
   <section class="py-20 px-6 bg-brand-olive relative">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-brand-green text-sm tracking-[0.3em] uppercase mb-10">Testimonials</h2>
+      <h2 class="text-brand-green text-base tracking-[0.3em] uppercase mb-10">Testimonials</h2>
       
       <!-- Testimonials Carousel -->
       <div class="relative" id="testimonialCarousel">
         <!-- Testimonial 1 -->
         <div class="testimonial-slide active">
-          <p class="text-white text-base mb-8">Maria G. - Milano</p>
-          <blockquote class="text-white/90 text-base italic leading-loose">
+          <p class="text-white text-lg mb-8">Maria G. - Milano</p>
+          <blockquote class="text-white/90 text-lg italic leading-loose">
             <span class="it">"Vivendo all'estero, avevo difficoltà a gestire il mio appartamento a Milano. L'approccio full-service mi ha semplificato molto la vita. Dalla preparazione dell'immobile alla gestione della comunicazione con gli ospiti, hanno gestito tutto in modo impeccabile. I miei ricavi sono aumentati in modo significativo e mi sento molto tranquilla!"</span>
             <span class="en">"Living abroad, I had difficulty managing my apartment in Milan. The full-service approach made my life much easier. From preparing the property to managing communication with guests, they handled everything flawlessly. My revenue has increased significantly and I feel very relaxed!"</span>
           </blockquote>
@@ -276,8 +276,8 @@
         
         <!-- Testimonial 2 -->
         <div class="testimonial-slide">
-          <p class="text-white text-base mb-8">Luca B. - Milano</p>
-          <blockquote class="text-white/90 text-base italic leading-loose">
+          <p class="text-white text-lg mb-8">Luca B. - Milano</p>
+          <blockquote class="text-white/90 text-lg italic leading-loose">
             <span class="it">"Inizialmente ero nervoso all'idea di affittare la mia proprietà, ma NaKaApartments ha reso l'intero processo incredibilmente semplice. Si sono completamente occupati dell'iter di avviamento e mi hanno persino aiutato a riprogettare l'appartamento per renderlo più attraente per i viaggiatori. Il team è professionale, reattivo e si è preso cura di ogni dettaglio, consentendomi di concentrarmi sulla mia carriera mentre loro si occupano della mia proprietà in affitto."</span>
             <span class="en">"I was initially nervous about renting out my property, but NaKaApartments made the entire process incredibly simple. They completely handled the startup process and even helped me redesign the apartment to make it more attractive to travelers. The team is professional, responsive, and took care of every detail, allowing me to focus on my career while they manage my rental property."</span>
           </blockquote>
@@ -285,8 +285,8 @@
         
         <!-- Testimonial 3 -->
         <div class="testimonial-slide">
-          <p class="text-white text-base mb-8">Francesca L. - Milano</p>
-          <blockquote class="text-white/90 text-base italic leading-loose">
+          <p class="text-white text-lg mb-8">Francesca L. - Milano</p>
+          <blockquote class="text-white/90 text-lg italic leading-loose">
             <span class="it">"Lavorare con NaKaApartments è stata un'esperienza fantastica. Mi hanno aiutato a trasformare la mia casa vacanze in un affitto a breve termine di successo. La loro strategia di prezzi dinamici ha massimizzato i miei tassi di occupazione e adoro la trasparenza con i loro report sulle prestazioni. La dedizione e la competenza del team sono davvero impressionanti!"</span>
             <span class="en">"Working with NaKaApartments has been a fantastic experience. They helped me transform my vacation home into a successful short-term rental. Their dynamic pricing strategy has maximized my occupancy rates and I love the transparency with their performance reports. The team's dedication and expertise are truly impressive!"</span>
           </blockquote>
@@ -294,8 +294,8 @@
         
         <!-- Testimonial 4 -->
         <div class="testimonial-slide">
-          <p class="text-white text-base mb-8">Marco L. - Porto San Paolo (Sardegna)</p>
-          <blockquote class="text-white/90 text-base italic leading-loose">
+          <p class="text-white text-lg mb-8">Marco L. - Porto San Paolo (Sardegna)</p>
+          <blockquote class="text-white/90 text-lg italic leading-loose">
             <span class="it">"Ho sempre avuto paura di affittare la mia casa estiva in Sardegna. Ho deciso di provare con NaKaApartments e l'unico rammarico è di non averlo fatto prima. Ho finalmente trovato un grande equilibrio tra soggiornare in un posto meraviglioso e guadagnare quando non ci sono. Katia si prende molta cura della mia proprietà e degli ospiti! Altamente raccomandata!"</span>
             <span class="en">"I was always afraid of renting out my summer house in Sardinia. I decided to try NaKaApartments and my only regret is not doing it sooner. I finally found a great balance between staying in a wonderful place and earning when I'm not there. Katia takes great care of my property and guests! Highly recommended!"</span>
           </blockquote>
@@ -303,8 +303,8 @@
         
         <!-- Testimonial 5 -->
         <div class="testimonial-slide">
-          <p class="text-white text-base mb-8">Lorenzo P. - Milano</p>
-          <blockquote class="text-white/90 text-base italic leading-loose">
+          <p class="text-white text-lg mb-8">Lorenzo P. - Milano</p>
+          <blockquote class="text-white/90 text-lg italic leading-loose">
             <span class="it">"Ero frustrato dal mio precedente property manager, le prenotazioni erano poche ed a prezzi bassi, ed inoltre non c'era attenzione nei confronti della casa. Ho trovato NaKaApartments tramite un amico e ho deciso di cambiare. Katia è intervenuta con un approccio professionale. I miei ricavi sono notevolmente migliorati e la comunicazione con gli ospiti è sempre ottima. Finalmente sento che la mia proprietà è in buone mani."</span>
             <span class="en">"I was frustrated with my previous property manager - bookings were few and at low prices, and there was no care for the house. I found NaKaApartments through a friend and decided to switch. Katia stepped in with a professional approach. My revenue has significantly improved and guest communication is always excellent. I finally feel my property is in good hands."</span>
           </blockquote>
@@ -312,7 +312,7 @@
       </div>
       
       <!-- Counter -->
-      <div class="mt-8 text-white/60 text-sm">
+      <div class="mt-8 text-white/60 text-base">
         <span id="testimonialNum">1</span>/5
       </div>
     </div>
@@ -337,7 +337,7 @@
         <span class="it">Contattaci</span>
         <span class="en">Let's Chat</span>
       </h2>
-      <p class="text-base text-brand-text mb-16 max-w-xl mx-auto">
+      <p class="text-lg text-brand-text mb-16 max-w-xl mx-auto">
         <span class="it">Hai domande? Saremo felici di confrontarci con te! Che tu sia un proprietario in cerca di servizi di gestione o un viaggiatore in cerca del soggiorno perfetto, non esitare a contattarci.</span>
         <span class="en">Have questions? We'd love to hear from you! Whether you're an owner looking for management services or a traveler looking for the perfect stay, don't hesitate to reach out.</span>
       </p>
@@ -349,7 +349,7 @@
             <span class="it">Proprietari</span>
             <span class="en">Property Owners</span>
           </h3>
-          <div class="space-y-4 text-base">
+          <div class="space-y-4 text-lg">
             <p class="flex items-center justify-center gap-3">
               <svg class="w-5 h-5 text-brand-green flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
@@ -363,7 +363,7 @@
               <a href="mailto:info@nakapartments.com" class="hover:text-brand-green">info@nakapartments.com</a>
             </p>
           </div>
-          <a href="https://wa.me/393383188155" target="_blank" class="inline-flex items-center justify-center gap-2 mt-8 px-8 py-3 border-2 border-[#25D366] text-[#25D366] rounded-full text-base font-medium hover:bg-[#25D366] hover:text-white transition-colors">
+          <a href="https://wa.me/393383188155" target="_blank" class="inline-flex items-center justify-center gap-2 mt-8 px-8 py-3 border-2 border-[#25D366] text-[#25D366] rounded-full text-lg font-medium hover:bg-[#25D366] hover:text-white transition-colors">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
             </svg>
@@ -377,7 +377,7 @@
             <span class="it">Viaggiatori</span>
             <span class="en">Travelers</span>
           </h3>
-          <div class="space-y-4 text-base">
+          <div class="space-y-4 text-lg">
             <p class="flex items-center justify-center gap-3">
               <svg class="w-5 h-5 text-brand-green flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
@@ -391,7 +391,7 @@
               <a href="mailto:reservations@nakapartments.com" class="hover:text-brand-green">reservations@nakapartments.com</a>
             </p>
           </div>
-          <a href="https://wa.me/393925378957" target="_blank" class="inline-flex items-center justify-center gap-2 mt-8 px-8 py-3 border-2 border-[#25D366] text-[#25D366] rounded-full text-base font-medium hover:bg-[#25D366] hover:text-white transition-colors">
+          <a href="https://wa.me/393925378957" target="_blank" class="inline-flex items-center justify-center gap-2 mt-8 px-8 py-3 border-2 border-[#25D366] text-[#25D366] rounded-full text-lg font-medium hover:bg-[#25D366] hover:text-white transition-colors">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
             </svg>
@@ -404,7 +404,7 @@
 
   <!-- Footer -->
   <footer class="py-10 px-6 border-t border-gray-200">
-    <div class="max-w-4xl mx-auto text-center text-sm text-brand-text">
+    <div class="max-w-4xl mx-auto text-center text-base text-brand-text">
       <p>© 2025 by NaKaApartments - Naka Solutions srl - P. IVA 14133350968</p>
     </div>
   </footer>
