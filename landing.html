@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestione Affitti Brevi Milano | NaKaApartments</title>
+  <meta name="description" content="Affida il tuo appartamento a Milano a professionisti. Massimizziamo i tuoi ricavi, zero stress. Valutazione gratuita.">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="images/favicon-192.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            sans: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              green: '#b5c662',
+              olive: '#4a5a3d',
+              tan: '#c4a77d',
+              dark: '#1a1a1a',
+              gray: '#f5f5f5',
+              taupe: '#e8e4df',
+              text: '#666666',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .form-input:focus { outline: none; border-color: #b5c662; }
+  </style>
+</head>
+<body class="font-sans bg-white text-brand-text">
+
+  <!-- Minimal Header - No Navigation -->
+  <header class="bg-white py-4 border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-center">
+      <img src="images/logo.png" alt="NaKaApartments" class="h-10">
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-brand-gray to-white py-12 lg:py-20 px-6">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      
+      <!-- Left: Value Proposition -->
+      <div>
+        <h1 class="font-display text-3xl md:text-4xl lg:text-5xl text-brand-dark leading-tight mb-6">
+          Affida il tuo appartamento a Milano a professionisti
+        </h1>
+        <p class="text-xl md:text-2xl text-brand-tan font-medium mb-6">
+          Massimizziamo i tuoi ricavi e riduciamo lo stress
+        </p>
+        <p class="text-lg text-brand-text mb-8">
+          Valutazione gratuita, gestione completa, senza impegno. Scopri quanto può rendere il tuo immobile.
+        </p>
+        
+        <!-- Trust Badges -->
+        <div class="flex flex-wrap items-center gap-6 mb-8">
+          <div class="flex items-center gap-2">
+            <span class="text-3xl font-bold text-brand-olive">45+</span>
+            <span class="text-sm text-brand-text">Appartamenti<br>gestiti</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-3xl font-bold text-brand-olive">7+</span>
+            <span class="text-sm text-brand-text">Anni di<br>esperienza</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-3xl font-bold text-brand-olive">4.9</span>
+            <span class="text-sm text-brand-text">Valutazione<br>media ospiti</span>
+          </div>
+        </div>
+
+        <!-- Platform Logos -->
+        <div class="flex items-center gap-4 opacity-60">
+          <span class="text-sm">Presenti su:</span>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="Airbnb" class="h-6">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Booking.com_logo.svg" alt="Booking.com" class="h-5">
+        </div>
+      </div>
+
+      <!-- Right: Lead Capture Form -->
+      <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-10">
+        <h2 class="font-display text-2xl text-brand-dark mb-2 text-center">
+          Richiedi una valutazione gratuita
+        </h2>
+        <p class="text-brand-text text-center mb-6">
+          Scopri quanto può rendere il tuo appartamento
+        </p>
+        
+        <form name="lead-capture" method="POST" data-netlify="true" class="space-y-4">
+          <input type="hidden" name="form-name" value="lead-capture">
+          <div>
+            <label class="block text-sm font-medium text-brand-dark mb-1">Nome *</label>
+            <input type="text" name="nome" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg text-brand-dark">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-brand-dark mb-1">Telefono *</label>
+            <input type="tel" name="telefono" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg text-brand-dark">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-brand-dark mb-1">Email *</label>
+            <input type="email" name="email" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg text-brand-dark">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-brand-dark mb-1">Zona dell'appartamento *</label>
+            <input type="text" name="zona" placeholder="Es. Porta Romana, Navigli, San Siro..." required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg text-brand-dark">
+          </div>
+          <button type="submit" class="w-full bg-brand-green hover:bg-brand-olive text-white font-semibold py-4 px-6 rounded-lg text-lg transition-colors">
+            Richiedi valutazione gratuita →
+          </button>
+          <p class="text-xs text-center text-brand-text">
+            Nessun impegno. Ti ricontatteremo entro 24 ore.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="font-display text-3xl text-brand-dark text-center mb-4">
+        Perché scegliere NaKaApartments?
+      </h2>
+      <p class="text-center text-brand-text mb-12 max-w-2xl mx-auto">
+        Gestiamo tutto noi, tu incassi senza pensieri.
+      </p>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Benefit 1 -->
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-brand-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-brand-olive" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-brand-dark text-lg mb-2">Maggiori ricavi</h3>
+          <p class="text-brand-text">Prezzi dinamici per massimizzare occupazione e rendimento</p>
+        </div>
+        
+        <!-- Benefit 2 -->
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-brand-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-brand-olive" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-brand-dark text-lg mb-2">Gestione completa</h3>
+          <p class="text-brand-text">Check-in, assistenza ospiti e pulizie</p>
+        </div>
+        
+        <!-- Benefit 3 -->
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-brand-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-brand-olive" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-brand-dark text-lg mb-2">Massima visibilità</h3>
+          <p class="text-brand-text">Pubblicazione e ottimizzazione su Airbnb, Booking e sito diretto</p>
+        </div>
+        
+        <!-- Benefit 4 -->
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-brand-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-brand-olive" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-brand-dark text-lg mb-2">Gestione normativa</h3>
+          <p class="text-brand-text">Registrazioni ospiti, tasse di soggiorno e adempimenti obbligatori</p>
+        </div>
+        
+        <!-- Benefit 5 -->
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-brand-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-brand-olive" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-brand-dark text-lg mb-2">Gestione imprevisti</h3>
+          <p class="text-brand-text">Interveniamo per risolvere problemi e coordinare gli interventi necessari</p>
+        </div>
+        
+        <!-- Benefit 6 -->
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-brand-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-brand-olive" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-brand-dark text-lg mb-2">Esperienza strutturata</h3>
+          <p class="text-brand-text">Gestione stabile di numerosi appartamenti a Milano e provincia</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-12">
+        <a href="#form" class="inline-block bg-brand-green hover:bg-brand-olive text-white font-semibold py-4 px-10 rounded-lg text-lg transition-colors">
+          Scopri quanto può rendere il tuo appartamento →
+        </a>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mt-6 text-sm text-brand-text">
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Pieno rispetto delle normative vigenti
+          </span>
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Supporto continuativo per il proprietario
+          </span>
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Presenza operativa su Milano e provincia
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-16 px-6 bg-brand-olive">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="font-display text-3xl text-white text-center mb-12">
+        Cosa dicono i nostri proprietari
+      </h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Testimonial 1 -->
+        <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-white/90 text-sm italic mb-4">
+            "Vivendo all'estero, avevo difficoltà a gestire il mio appartamento. L'approccio full-service mi ha semplificato molto la vita. I miei ricavi sono aumentati in modo significativo!"
+          </p>
+          <p class="text-brand-green font-medium">Maria G. — Milano</p>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-white/90 text-sm italic mb-4">
+            "Ero frustrato dal mio precedente property manager. Con NaKaApartments i miei ricavi sono notevolmente migliorati. Finalmente sento che la mia proprietà è in buone mani."
+          </p>
+          <p class="text-brand-green font-medium">Lorenzo P. — Milano</p>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-white/90 text-sm italic mb-4">
+            "Ho sempre avuto paura di affittare la mia casa in Sardegna. L'unico rammarico è di non averlo fatto prima. Katia si prende molta cura della mia proprietà!"
+          </p>
+          <p class="text-brand-green font-medium">Marco L. — Sardegna</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="py-16 px-6 bg-brand-gray">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-display text-3xl text-brand-dark text-center mb-12">
+        Come funziona
+      </h2>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-12 h-12 bg-brand-green text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+          <h3 class="font-semibold text-brand-dark mb-2">Valutazione gratuita</h3>
+          <p class="text-brand-text text-sm">Analizziamo il tuo appartamento e ti diciamo quanto può rendere</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 bg-brand-green text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+          <h3 class="font-semibold text-brand-dark mb-2">Preparazione</h3>
+          <p class="text-brand-text text-sm">Ci occupiamo di foto, annunci, pratiche e allestimento</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 bg-brand-green text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+          <h3 class="font-semibold text-brand-dark mb-2">Tu incassi</h3>
+          <p class="text-brand-text text-sm">Gestiamo tutto noi, tu ricevi i pagamenti mensili</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-12">
+        <a href="#form" class="inline-block bg-brand-green hover:bg-brand-olive text-white font-semibold py-4 px-10 rounded-lg text-lg transition-colors">
+          Parla con un nostro esperto oggi →
+        </a>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mt-6 text-sm text-brand-text">
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Pieno rispetto delle normative vigenti
+          </span>
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Supporto continuativo per il proprietario
+          </span>
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Presenza operativa su Milano e provincia
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section id="form" class="py-16 px-6 bg-white">
+    <div class="max-w-xl mx-auto">
+      <h2 class="font-display text-3xl text-brand-dark text-center mb-4">
+        Pronto a guadagnare dal tuo appartamento?
+      </h2>
+      <p class="text-center text-brand-text mb-8">
+        Richiedi una valutazione gratuita. Nessun impegno.
+      </p>
+      
+      <!-- Duplicate Form -->
+      <div class="bg-brand-gray rounded-2xl p-8">
+        <form name="lead-capture" method="POST" data-netlify="true" class="space-y-4">
+          <input type="hidden" name="form-name" value="lead-capture">
+          <div>
+            <label class="block text-sm font-medium text-brand-dark mb-1">Nome *</label>
+            <input type="text" name="nome" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg text-brand-dark bg-white">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-brand-dark mb-1">Telefono *</label>
+            <input type="tel" name="telefono" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg text-brand-dark bg-white">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-brand-dark mb-1">Email *</label>
+            <input type="email" name="email" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg text-brand-dark bg-white">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-brand-dark mb-1">Zona dell'appartamento *</label>
+            <input type="text" name="zona" placeholder="Es. Porta Romana, Navigli, San Siro..." required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg text-brand-dark bg-white">
+          </div>
+          <button type="submit" class="w-full bg-brand-green hover:bg-brand-olive text-white font-semibold py-4 px-6 rounded-lg text-lg transition-colors">
+            Richiedi valutazione gratuita →
+          </button>
+        </form>
+      </div>
+      
+      <!-- Alternative Contact -->
+      <div class="text-center mt-8">
+        <p class="text-brand-text mb-4">Preferisci parlare direttamente?</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="tel:+393383188155" class="flex items-center gap-2 text-brand-dark hover:text-brand-green">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            +39 338 3188155
+          </a>
+          <a href="https://wa.me/393383188155" target="_blank" class="flex items-center gap-2 text-[#25D366] hover:text-[#128C7E]">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Minimal Footer -->
+  <footer class="py-6 px-6 bg-brand-dark text-white/60 text-sm">
+    <div class="max-w-4xl mx-auto text-center">
+      <p>© 2025 NaKaApartments - Naka Solutions srl - P. IVA 14133350968</p>
+      <p class="mt-2">Milano, Italia | <a href="mailto:info@nakapartments.com" class="hover:text-white">info@nakapartments.com</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
