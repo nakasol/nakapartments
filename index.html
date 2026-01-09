@@ -168,19 +168,12 @@
     <!-- Right: Gallery -->
     <div class="lg:w-1/2 h-[400px] lg:h-[500px] relative bg-gray-200">
       <div class="gallery-slider" id="heroGallery">
-        <img src="images/gallery-1.jpg" alt="Apartment" class="active">
-        <img src="images/gallery-2.jpg" alt="Apartment">
-        <img src="images/gallery-3.jpg" alt="Apartment">
-        <img src="images/gallery-4.jpg" alt="Apartment">
-        <img src="images/gallery-5.jpg" alt="Apartment">
-        <img src="images/gallery-6.jpg" alt="Apartment">
-        <img src="images/gallery-7.jpg" alt="Apartment">
-        <img src="images/gallery-8.jpg" alt="Apartment">
+        <!-- Images loaded dynamically by JS -->
       </div>
       
       <!-- Gallery counter -->
       <div class="absolute bottom-4 right-4 bg-black/60 text-white text-base px-3 py-1 rounded">
-        <span id="slideNum">1</span>/<span id="totalSlides">8</span>
+        <span id="slideNum">1</span>/<span id="totalSlides">1</span>
       </div>
     </div>
     
@@ -427,19 +420,44 @@
       document.getElementById('menuOverlay').classList.toggle('hidden');
     }
 
-    // Gallery
+    // Gallery - Dynamic image loader
     const gallery = document.getElementById('heroGallery');
-    const images = gallery.querySelectorAll('img');
     const slideNum = document.getElementById('slideNum');
     const totalSlides = document.getElementById('totalSlides');
+    let images = [];
     let currentIndex = 0;
-    const totalImages = images.length;
-    
-    totalSlides.textContent = totalImages;
+
+    // Try loading images until one fails
+    async function loadGalleryImages() {
+      let i = 1;
+      while (i <= 100) { // Max 100 images
+        const img = new Image();
+        const src = `images/gallery-${i}.jpg`;
+        
+        const exists = await new Promise(resolve => {
+          img.onload = () => resolve(true);
+          img.onerror = () => resolve(false);
+          img.src = src;
+        });
+        
+        if (!exists) break;
+        
+        const imgEl = document.createElement('img');
+        imgEl.src = src;
+        imgEl.alt = 'Apartment';
+        if (i === 1) imgEl.classList.add('active');
+        gallery.appendChild(imgEl);
+        i++;
+      }
+      
+      images = gallery.querySelectorAll('img');
+      totalSlides.textContent = images.length;
+    }
 
     function showSlide(index) {
+      if (images.length === 0) return;
       images[currentIndex].classList.remove('active');
-      currentIndex = (index + totalImages) % totalImages;
+      currentIndex = (index + images.length) % images.length;
       images[currentIndex].classList.add('active');
       slideNum.textContent = currentIndex + 1;
     }
@@ -452,8 +470,10 @@
       showSlide(currentIndex - 1);
     }
 
-    // Auto-advance every 5 seconds
-    setInterval(nextSlide, 5000);
+    // Load images then start auto-advance
+    loadGalleryImages().then(() => {
+      setInterval(nextSlide, 5000);
+    });
 
     // Testimonials Carousel
     const testimonials = document.querySelectorAll('.testimonial-slide');
