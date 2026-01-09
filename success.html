@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grazie! | NaKaApartments</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            sans: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              green: '#b5c662',
+              olive: '#4a5a3d',
+              tan: '#c4a77d',
+              dark: '#1a1a1a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sans bg-white min-h-screen flex items-center justify-center">
+  <div class="text-center px-6 py-20">
+    <div class="w-20 h-20 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-6">
+      <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+      </svg>
+    </div>
+    <h1 class="font-display text-3xl text-brand-dark mb-4">Grazie per averci contattato!</h1>
+    <p class="text-gray-600 mb-8 max-w-md mx-auto">
+      Abbiamo ricevuto la tua richiesta. Ti ricontatteremo entro 24 ore per discutere come possiamo aiutarti a massimizzare il rendimento del tuo appartamento.
+    </p>
+    <a href="/" class="inline-block bg-brand-green hover:bg-brand-olive text-white font-semibold py-3 px-8 rounded-lg transition-colors">
+      Torna alla home
+    </a>
+  </div>
+</body>
+</html>
