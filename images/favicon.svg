@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- House outline -->
+  <path d="M8 28 L32 8 L56 28 L56 56 L8 56 Z" fill="none" stroke="#9a9a9a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Green dot -->
+  <circle cx="28" cy="44" r="12" fill="#b5c662"/>
+</svg>
