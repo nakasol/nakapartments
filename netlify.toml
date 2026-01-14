@@ -11,7 +11,7 @@
 
 [[redirects]]
   from = "/en/owners"
-  to = "/owners.html"
+  to = "/affitti-brevi-milano.html"
   status = 301
 
 [[redirects]]
@@ -19,11 +19,31 @@
   to = "/travelers.html"
   status = 301
 
-# Clean URLs (optional - access pages without .html)
+# Clean URLs
 [[redirects]]
   from = "/owners"
-  to = "/owners.html"
+  to = "/affitti-brevi-milano.html"
   status = 200
+
+[[redirects]]
+  from = "/owners.html"
+  to = "/affitti-brevi-milano.html"
+  status = 301
+
+[[redirects]]
+  from = "/affitti-brevi-milano"
+  to = "/affitti-brevi-milano.html"
+  status = 200
+
+[[redirects]]
+  from = "/landing"
+  to = "/affitti-brevi-milano.html"
+  status = 301
+
+[[redirects]]
+  from = "/landing.html"
+  to = "/affitti-brevi-milano.html"
+  status = 301
 
 [[redirects]]
   from = "/travelers"

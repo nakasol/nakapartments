@@ -4,11 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NaKaApartments | Gestione Locazioni Brevi</title>
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
   <link rel="apple-touch-icon" sizes="192x192" href="images/favicon-192.png">
   <meta name="description" content="Property Management e Affitti Brevi a Milano. Gestione completa per proprietari e soggiorni perfetti per viaggiatori.">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-56DLEYNNYP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-56DLEYNNYP');
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -123,7 +131,7 @@
     </button>
     <nav class="mt-16 space-y-6">
       <a href="index.html" class="block text-lg text-brand-dark hover:text-brand-tan">Home</a>
-      <a href="owners.html" class="block text-lg text-brand-dark hover:text-brand-tan">
+      <a href="affitti-brevi-milano.html" class="block text-lg text-brand-dark hover:text-brand-tan">
         <span class="it">Proprietari</span>
         <span class="en">Owners</span>
       </a>
@@ -227,7 +235,7 @@
   <section class="py-20 px-6 bg-brand-taupe">
     <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-16">
       <!-- Owners Card -->
-      <a href="owners.html" class="group text-center">
+      <a href="affitti-brevi-milano.html" class="group text-center">
         <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
           <svg class="w-14 h-14 text-brand-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
             <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
@@ -334,66 +342,114 @@
         <span class="it">Contattaci</span>
         <span class="en">Let's Chat</span>
       </h2>
-      <p class="text-lg text-brand-text mb-16 max-w-xl mx-auto">
-        <span class="it">Hai domande? Saremo felici di confrontarci con te! Che tu sia un proprietario in cerca di servizi di gestione o un viaggiatore in cerca del soggiorno perfetto, non esitare a contattarci.</span>
-        <span class="en">Have questions? We'd love to hear from you! Whether you're an owner looking for management services or a traveler looking for the perfect stay, don't hesitate to reach out.</span>
+      <p class="text-lg text-brand-text mb-10 max-w-xl mx-auto">
+        <span class="it">Hai domande? Saremo felici di confrontarci con te!</span>
+        <span class="en">Have questions? We'd love to hear from you!</span>
       </p>
 
-      <div class="grid md:grid-cols-2 gap-10 max-w-3xl mx-auto">
-        <!-- Owners Contact -->
-        <div class="p-10 bg-brand-gray rounded-lg">
-          <h3 class="font-display text-4xl text-brand-dark mb-8">
-            <span class="it">Proprietari</span>
-            <span class="en">Property Owners</span>
-          </h3>
-          <div class="space-y-4 text-lg">
-            <p class="flex items-center justify-center gap-3">
-              <svg class="w-5 h-5 text-brand-green flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-              </svg>
-              <a href="tel:+393383188155" class="hover:text-brand-green">+39 338 3188155</a>
-            </p>
-            <p class="flex items-center justify-center gap-3">
-              <svg class="w-5 h-5 text-brand-pink flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-              </svg>
-              <a href="mailto:info@nakapartments.com" class="hover:text-brand-green">info@nakapartments.com</a>
-            </p>
-          </div>
-          <a href="https://wa.me/393383188155" target="_blank" class="inline-flex items-center justify-center gap-2 mt-8 px-8 py-3 border-2 border-[#25D366] text-[#25D366] rounded-full text-lg font-medium hover:bg-[#25D366] hover:text-white transition-colors">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            WhatsApp
-          </a>
+      <!-- Type Selector -->
+      <div id="contactSelector" class="max-w-md mx-auto mb-10">
+        <p class="text-lg text-brand-dark mb-4">
+          <span class="it">Sei un...</span>
+          <span class="en">Are you a...</span>
+        </p>
+        <div class="flex gap-4 justify-center">
+          <button onclick="showOwnerForm()" class="px-8 py-4 bg-brand-tan text-white rounded-lg font-semibold hover:bg-brand-olive transition-colors">
+            <span class="it">Proprietario</span>
+            <span class="en">Property Owner</span>
+          </button>
+          <button onclick="redirectTraveler()" class="px-8 py-4 bg-brand-green text-white rounded-lg font-semibold hover:bg-brand-olive transition-colors">
+            <span class="it">Viaggiatore</span>
+            <span class="en">Traveler</span>
+          </button>
         </div>
+      </div>
 
-        <!-- Travelers Contact -->
-        <div class="p-10 bg-brand-gray rounded-lg">
-          <h3 class="font-display text-4xl text-brand-dark mb-8">
-            <span class="it">Viaggiatori</span>
-            <span class="en">Travelers</span>
+      <!-- Owner Form (hidden by default) -->
+      <div id="ownerForm" class="hidden max-w-lg mx-auto">
+        <div class="bg-brand-gray rounded-2xl p-8">
+          <h3 class="font-display text-2xl text-brand-dark mb-2">
+            <span class="it">Richiedi una valutazione gratuita</span>
+            <span class="en">Request a free evaluation</span>
           </h3>
-          <div class="space-y-4 text-lg">
-            <p class="flex items-center justify-center gap-3">
-              <svg class="w-5 h-5 text-brand-green flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-              </svg>
-              <a href="tel:+390287178737" class="hover:text-brand-green">+39 02 87178737</a>
+          <p class="text-brand-text mb-6">
+            <span class="it">Scopri quanto può rendere il tuo appartamento</span>
+            <span class="en">Discover how much your apartment can earn</span>
+          </p>
+          
+          <form name="contact-form" method="POST" data-netlify="true" action="/success.html" class="space-y-4 text-left">
+            <input type="hidden" name="form-name" value="contact-form">
+            <input type="hidden" name="source" value="homepage">
+            <div>
+              <label class="block text-sm font-medium text-brand-dark mb-1">
+                <span class="it">Nome *</span>
+                <span class="en">Name *</span>
+              </label>
+              <input type="text" name="nome" required class="w-full px-4 py-3 border border-gray-300 rounded-lg text-brand-dark focus:outline-none focus:border-brand-green">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-brand-dark mb-1">
+                <span class="it">Telefono *</span>
+                <span class="en">Phone *</span>
+              </label>
+              <input type="tel" name="telefono" required class="w-full px-4 py-3 border border-gray-300 rounded-lg text-brand-dark focus:outline-none focus:border-brand-green">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-brand-dark mb-1">Email *</label>
+              <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg text-brand-dark focus:outline-none focus:border-brand-green">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-brand-dark mb-1">
+                <span class="it">Tipologia appartamento *</span>
+                <span class="en">Apartment type *</span>
+              </label>
+              <select name="tipologia" required class="w-full px-4 py-3 border border-gray-300 rounded-lg text-brand-dark bg-white focus:outline-none focus:border-brand-green">
+                <option value=""><span class="it">Seleziona...</span></option>
+                <option value="Monolocale">Monolocale / Studio</option>
+                <option value="Bilocale">Bilocale / 1 Bedroom</option>
+                <option value="Trilocale">Trilocale / 2 Bedrooms</option>
+                <option value="Altro">Altro / Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-brand-dark mb-1">
+                <span class="it">Zona dell'appartamento *</span>
+                <span class="en">Apartment location *</span>
+              </label>
+              <input type="text" name="zona" placeholder="Es. Porta Romana, Navigli, San Siro..." required class="w-full px-4 py-3 border border-gray-300 rounded-lg text-brand-dark focus:outline-none focus:border-brand-green">
+            </div>
+            <button type="submit" class="w-full bg-brand-green hover:bg-brand-olive text-white font-semibold py-4 px-6 rounded-lg text-lg transition-colors">
+              <span class="it">Richiedi valutazione gratuita →</span>
+              <span class="en">Request free evaluation →</span>
+            </button>
+            <p class="text-xs text-center text-brand-text">
+              <span class="it">Nessun impegno. Ti ricontatteremo entro 24 ore.</span>
+              <span class="en">No obligation. We'll contact you within 24 hours.</span>
             </p>
-            <p class="flex items-center justify-center gap-3">
-              <svg class="w-5 h-5 text-brand-pink flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-              </svg>
-              <a href="mailto:reservations@nakapartments.com" class="hover:text-brand-green">reservations@nakapartments.com</a>
+          </form>
+          
+          <!-- Alternative Contact -->
+          <div class="mt-8 pt-6 border-t border-gray-300">
+            <p class="text-brand-text mb-4">
+              <span class="it">Preferisci parlare direttamente?</span>
+              <span class="en">Prefer to talk directly?</span>
             </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="tel:+393383188155" class="flex items-center gap-2 text-brand-dark hover:text-brand-green">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                +39 338 3188155
+              </a>
+              <a href="https://wa.me/393383188155" target="_blank" class="flex items-center gap-2 text-[#25D366] hover:text-[#128C7E]">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+              </a>
+            </div>
           </div>
-          <a href="https://wa.me/393925378957" target="_blank" class="inline-flex items-center justify-center gap-2 mt-8 px-8 py-3 border-2 border-[#25D366] text-[#25D366] rounded-full text-lg font-medium hover:bg-[#25D366] hover:text-white transition-colors">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            WhatsApp
-          </a>
+          
+          <button onclick="hideOwnerForm()" class="mt-6 text-sm text-brand-text hover:text-brand-dark underline">
+            <span class="it">← Torna indietro</span>
+            <span class="en">← Go back</span>
+          </button>
         </div>
       </div>
     </div>
@@ -502,6 +558,23 @@
 
     // Auto-advance testimonials every 8 seconds
     setInterval(nextTestimonial, 8000);
+
+    // Contact form functions
+    function showOwnerForm() {
+      document.getElementById('contactSelector').classList.add('hidden');
+      document.getElementById('ownerForm').classList.remove('hidden');
+    }
+
+    function hideOwnerForm() {
+      document.getElementById('ownerForm').classList.add('hidden');
+      document.getElementById('contactSelector').classList.remove('hidden');
+    }
+
+    function redirectTraveler() {
+      const isEnglish = document.body.classList.contains('lang-en');
+      const url = isEnglish ? 'https://nakapartments.kross.travel/en' : 'https://nakapartments.kross.travel/it';
+      window.open(url, '_blank');
+    }
   </script>
 </body>
 </html>

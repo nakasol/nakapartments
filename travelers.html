@@ -4,11 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Viaggiatori | NaKaApartments</title>
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
   <link rel="apple-touch-icon" sizes="192x192" href="images/favicon-192.png">
   <meta name="description" content="Cerchi un alloggio per il tuo prossimo soggiorno? Appartamenti a Milano e dintorni.">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-56DLEYNNYP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-56DLEYNNYP');
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,7 +92,7 @@
     </button>
     <nav class="mt-16 space-y-6">
       <a href="index.html" class="block text-lg text-brand-dark hover:text-brand-tan">Home</a>
-      <a href="owners.html" class="block text-lg text-brand-dark hover:text-brand-tan">
+      <a href="affitti-brevi-milano.html" class="block text-lg text-brand-dark hover:text-brand-tan">
         <span class="it">Proprietari</span>
         <span class="en">Owners</span>
       </a>
@@ -115,10 +123,10 @@
         <span class="it">Cerchi un alloggio per il tuo prossimo soggiorno? Offriamo una varietà di sistemazioni per soddisfare le esigenze di ogni viaggiatore. Da accoglienti appartamenti in città a spaziose case vacanze, NaKaApartments ha l'opzione perfetta per te. Clicca qui sotto per prenotare direttamente il tuo soggiorno.</span>
         <span class="en">Looking for your next stay? We offer a variety of accommodations to suit every traveler's needs. From cozy city apartments to spacious vacation homes, NaKaApartments has the perfect option for you. Click below to browse and book your stay directly.</span>
       </p>
-      <a href="https://nakapartments.kross.travel/en" target="_blank" class="inline-block px-10 py-4 bg-brand-dark text-white text-lg tracking-wide hover:bg-brand-olive transition-colors rounded">
+      <button onclick="goToKross()" class="inline-block px-10 py-4 bg-brand-dark text-white text-lg tracking-wide hover:bg-brand-olive transition-colors rounded">
         <span class="it">Prenota ora</span>
         <span class="en">Find your next stay!</span>
-      </a>
+      </button>
     </div>
   </section>
 
@@ -141,6 +149,12 @@
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('open');
       document.getElementById('menuOverlay').classList.toggle('hidden');
+    }
+
+    function goToKross() {
+      const isEnglish = document.body.classList.contains('lang-en');
+      const url = isEnglish ? 'https://nakapartments.kross.travel/en' : 'https://nakapartments.kross.travel/it';
+      window.open(url, '_blank');
     }
   </script>
 </body>
