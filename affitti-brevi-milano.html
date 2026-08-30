@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestione Affitti Brevi Milano | NaKaApartments</title>
   <meta name="description" content="Massimizziamo i ricavi del tuo appartamento in affitto breve a Milano. Valutazione gratuita, gestione completa.">
+  <!-- I link interni aggiungono ?r=proprietario: il canonical evita che Google
+       indicizzi la variante con parametro come pagina distinta. -->
+  <link rel="canonical" href="https://nakapartments.com/affitti-brevi-milano">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
@@ -409,6 +412,12 @@
           Presenza operativa su Milano e provincia
         </span>
       </div>
+
+      <p class="text-center mt-10">
+        <a href="owners.html" class="text-brand-olive underline hover:text-brand-dark">
+          Vuoi vedere tutti i servizi nel dettaglio? &rarr;
+        </a>
+      </p>
     </div>
   </section>
 
@@ -716,10 +725,12 @@
   <script>
     // Filtro proprietario / viaggiatore.
     // Lo stato vive sul <body>; il CSS in testa al file decide cosa mostrare.
-    function setMode(mode) {
+    function setMode(mode, traccia) {
       document.body.classList.remove('mode-none', 'mode-owner', 'mode-guest');
       document.body.classList.add('mode-' + mode);
-      if (typeof gtag === 'function') {
+      // Traccia solo la scelta fatta davvero sulla pagina: se l'intenzione arriva
+      // gia' da un link interno, contarla falserebbe le statistiche del filtro.
+      if (traccia !== false && typeof gtag === 'function') {
         gtag('event', mode === 'owner' ? 'filtro_proprietario' : 'filtro_viaggiatore');
       }
     }
@@ -727,6 +738,15 @@
       document.body.classList.remove('mode-owner', 'mode-guest');
       document.body.classList.add('mode-none');
     }
+    // I link interni del sito passano ?r=proprietario (o ?r=viaggiatore): chi ha
+    // gia' dichiarato chi e' non se lo sente richiedere. Gli annunci non hanno il
+    // parametro, quindi il traffico a pagamento vede la domanda.
+    (function () {
+      var r = new URLSearchParams(window.location.search).get('r');
+      if (r === 'proprietario') setMode('owner', false);
+      else if (r === 'viaggiatore') setMode('guest', false);
+    })();
+
     // Al click il pulsante sostituisce l'etichetta con il numero (utile da desktop,
     // dove tel: e wa.me spesso non aprono nulla).
     function mostraNumero(el, numero) {

@@ -2,6 +2,9 @@
 
 [build]
   publish = "."
+  # Rigenera images/gallery.json leggendo images/gallery/.
+  # Per aggiungere una foto alla galleria della home basta metterla li'.
+  command = "node tools/genera-galleria.js"
 
 # Redirects for old Wix URLs (SEO preservation)
 [[redirects]]

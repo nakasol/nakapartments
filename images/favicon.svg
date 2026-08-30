@@ -1,6 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- House outline -->
-  <path d="M8 28 L32 8 L56 28 L56 56 L8 56 Z" fill="none" stroke="#9a9a9a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Green dot -->
-  <circle cx="28" cy="44" r="12" fill="#b5c662"/>
+  <!-- Simbolo NaKaApartments: casa aperta (tetto + due montanti, senza base)
+       e pallino verde che sborda sotto. Geometria e colori ricavati misurando
+       images/logo.png, cosi' il favicon coincide con il logo. -->
+  <path d="M4.4 46 V29.25 L31.86 11.45 L59.6 29.25 V46"
+        fill="none" stroke="#989694" stroke-width="2.8"
+        stroke-linecap="butt" stroke-linejoin="round"/>
+  <circle cx="31.28" cy="44.12" r="9.83" fill="#BDD952"/>
 </svg>
