@@ -47,9 +47,20 @@
   <style>
     html { scroll-behavior: smooth; }
     .form-input:focus { outline: none; border-color: #b5c662; }
+    /* --- Filtro proprietario / viaggiatore --- */
+    [data-gate], [data-owner-only], [data-guest-only] { display: none; }
+    body.mode-none  [data-gate]       { display: block; }
+    body.mode-owner [data-owner-only] { display: block; }
+    body.mode-guest [data-guest-only] { display: block; }
+    /* Sotto lg il riquadro cadrebbe sotto la piega: la domanda va sopra il titolo */
+    [data-gate-mobile] { display: none; }
+    @media (max-width: 1023px) {
+      body.mode-none [data-gate-mobile] { display: block; }
+      body.mode-none [data-hero-card]   { display: none; }
+    }
   </style>
 </head>
-<body class="font-sans bg-white text-brand-text">
+<body class="font-sans bg-white text-brand-text mode-none">
 
   <!-- Header with clickable logo -->
   <header class="bg-white py-4 border-b border-gray-100">
@@ -60,12 +71,34 @@
     </div>
   </header>
 
+  <!-- Filtro versione mobile: sopra il titolo, solo sotto lg e solo prima della scelta -->
+  <div data-gate-mobile class="px-6 pt-6 bg-brand-gray">
+    <div class="bg-white rounded-2xl shadow-xl p-6">
+      <h2 class="font-display text-2xl text-brand-dark mb-2 text-center">
+        Come possiamo aiutarti?
+      </h2>
+      <p class="text-brand-text text-center mb-6">
+        Scegli l'opzione che ti riguarda
+      </p>
+      <div class="space-y-3">
+        <button type="button" onclick="setMode('owner')" class="w-full text-left px-6 py-5 rounded-xl border-2 border-brand-green bg-brand-green/10 hover:bg-brand-green/20 transition-colors">
+          <span class="block font-semibold text-brand-dark text-lg">Ho un immobile da affidare in gestione</span>
+          <span class="block text-sm text-brand-text mt-1">Richiedi una valutazione gratuita</span>
+        </button>
+        <button type="button" onclick="setMode('guest')" class="w-full text-left px-6 py-5 rounded-xl border-2 border-gray-200 hover:border-brand-tan hover:bg-brand-gray transition-colors">
+          <span class="block font-semibold text-brand-dark text-lg">Cerco un alloggio</span>
+          <span class="block text-sm text-brand-text mt-1">Ti indirizziamo alla sezione dedicata</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Hero Section -->
   <section class="bg-gradient-to-br from-brand-gray to-white pt-8 pb-12 lg:pt-12 lg:pb-20 px-6">
     <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
       
       <!-- Left: Value Proposition -->
-      <div>
+      <div class="min-w-0">
         <h1 class="font-sans text-3xl md:text-4xl lg:text-5xl text-brand-dark leading-tight mb-12 font-semibold">
           Massimizziamo i ricavi del tuo appartamento in affitto breve a Milano
         </h1>
@@ -100,8 +133,30 @@
         </div>
       </div>
 
-      <!-- Right: Lead Capture Form -->
-      <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-10">
+      <!-- Right: filtro + Lead Capture Form -->
+      <div data-hero-card class="min-w-0 bg-white rounded-2xl shadow-xl p-8 lg:p-10">
+
+        <div data-gate>
+          <h2 class="font-display text-2xl text-brand-dark mb-2 text-center">
+            Come possiamo aiutarti?
+          </h2>
+          <p class="text-brand-text text-center mb-6">
+            Scegli l'opzione che ti riguarda
+          </p>
+          <div class="space-y-3">
+            <button type="button" onclick="setMode('owner')" class="w-full text-left px-6 py-5 rounded-xl border-2 border-brand-green bg-brand-green/10 hover:bg-brand-green/20 transition-colors">
+              <span class="block font-semibold text-brand-dark text-lg">Ho un immobile da affidare in gestione</span>
+              <span class="block text-sm text-brand-text mt-1">Richiedi una valutazione gratuita</span>
+            </button>
+            <button type="button" onclick="setMode('guest')" class="w-full text-left px-6 py-5 rounded-xl border-2 border-gray-200 hover:border-brand-tan hover:bg-brand-gray transition-colors">
+              <span class="block font-semibold text-brand-dark text-lg">Cerco un alloggio</span>
+              <span class="block text-sm text-brand-text mt-1">Ti indirizziamo alla sezione dedicata</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PROPRIETARIO -->
+        <div data-owner-only>
         <h2 class="font-display text-2xl text-brand-dark mb-2 text-center">
           Richiedi una valutazione gratuita
         </h2>
@@ -130,6 +185,7 @@
               <option value="Monolocale">Monolocale</option>
               <option value="Bilocale">Bilocale</option>
               <option value="Trilocale">Trilocale</option>
+              <option value="Quadrilocale">Quadrilocale</option>
               <option value="Altro">Altro</option>
             </select>
           </div>
@@ -187,6 +243,17 @@
             </select>
           </div>
           <div>
+            <label class="block text-sm font-medium text-brand-dark mb-1">In che situazione si trova l'immobile? *</label>
+            <select name="situazione" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg text-brand-dark bg-white">
+              <option value="">Seleziona...</option>
+              <option value="Pronto e disponibile subito">Pronto e disponibile subito</option>
+              <option value="Gia in affitto breve">Gi&agrave; in affitto breve</option>
+              <option value="Affittato a lungo termine">Attualmente affittato a lungo termine</option>
+              <option value="Da arredare o ristrutturare">Da arredare o da ristrutturare</option>
+              <option value="Non ancora acquistato">Non l'ho ancora acquistato, sto valutando</option>
+            </select>
+          </div>
+          <div>
             <label class="block text-sm font-medium text-brand-dark mb-1">Note (opzionale)</label>
             <textarea name="note" rows="2" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg text-brand-dark" placeholder="Informazioni aggiuntive..."></textarea>
           </div>
@@ -202,16 +269,48 @@
         <div class="mt-6 pt-6 border-t border-gray-200">
           <p class="text-center text-brand-text mb-4">Preferisci parlare direttamente?</p>
           <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a href="tel:+393383188155" onclick="this.innerHTML='<svg class=\'w-5 h-5\' fill=\'currentColor\' viewBox=\'0 0 24 24\'><path d=\'M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z\'/></svg> 338 318 8155';" class="w-full sm:w-44 flex items-center justify-center gap-2 px-6 py-3 bg-brand-dark text-white rounded-lg font-medium hover:bg-brand-olive transition-colors">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-              Chiama
+            <a href="tel:+393383188155" onclick="mostraNumero(this,'338 318 8155')" class="w-full sm:w-44 flex items-center justify-center gap-2 px-6 py-3 bg-brand-dark text-white rounded-lg font-medium hover:bg-brand-olive transition-colors">
+              <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              <span data-etichetta>Chiama</span>
             </a>
-            <a href="https://wa.me/393383188155" target="_blank" onclick="this.innerHTML='<svg class=\'w-5 h-5\' viewBox=\'0 0 24 24\' fill=\'currentColor\'><path d=\'M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z\'/></svg> 338 318 8155';" class="w-full sm:w-44 flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] text-white rounded-lg font-medium hover:bg-[#128C7E] transition-colors">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              WhatsApp
+            <a href="https://wa.me/393383188155" target="_blank" onclick="mostraNumero(this,'338 318 8155')" class="w-full sm:w-44 flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] text-white rounded-lg font-medium hover:bg-[#128C7E] transition-colors">
+              <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span data-etichetta>WhatsApp</span>
             </a>
           </div>
         </div>
+        <div class="text-center mt-6">
+          <button type="button" onclick="resetMode()" class="text-sm text-brand-text underline hover:text-brand-dark">&larr; Torna indietro</button>
+        </div>
+        </div>
+
+        <!-- VIAGGIATORE: nessun form, contatti ufficio prenotazioni -->
+        <div data-guest-only class="text-center">
+          <h2 class="font-display text-2xl text-brand-dark mb-3">Cerchi un alloggio?</h2>
+          <p class="text-brand-text mb-6">
+            Questa pagina &egrave; dedicata ai proprietari di immobili. Per prenotare un soggiorno nei nostri appartamenti trovi tutto nella sezione Viaggiatori.
+          </p>
+          <a href="travelers.html" class="block w-full bg-brand-green hover:bg-brand-olive text-white font-semibold py-4 px-6 rounded-lg text-lg transition-colors mb-6">
+            Vai alla sezione Viaggiatori &rarr;
+          </a>
+          <div class="pt-6 border-t border-gray-200 space-y-3">
+            <p class="text-brand-text mb-4">Oppure contatta l'ufficio prenotazioni:</p>
+            <a href="tel:+393925378957" onclick="mostraNumero(this,'392 537 8957')" class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-brand-dark text-white rounded-lg font-medium hover:bg-brand-olive transition-colors">
+              <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              <span data-etichetta>Chiama</span>
+            </a>
+            <a href="https://wa.me/393925378957" target="_blank" onclick="mostraNumero(this,'392 537 8957')" class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] text-white rounded-lg font-medium hover:bg-[#128C7E] transition-colors">
+              <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span data-etichetta>WhatsApp</span>
+            </a>
+            <a href="mailto:reservations@nakapartments.com" class="w-full flex items-center justify-center gap-2 px-4 py-3 border border-gray-300 text-brand-dark rounded-lg font-medium text-sm sm:text-base hover:bg-brand-gray transition-colors">
+              <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <span class="break-all">reservations@nakapartments.com</span>
+            </a>
+          </div>
+          <button type="button" onclick="resetMode()" class="mt-6 text-sm text-brand-text underline hover:text-brand-dark">&larr; Torna indietro</button>
+        </div>
+
       </div>
     </div>
   </section>
@@ -427,6 +526,30 @@
   <!-- Final CTA Section -->
   <section id="form" class="py-16 px-6 bg-brand-taupe">
     <div class="max-w-xl mx-auto">
+
+      <div data-gate>
+        <h2 class="font-display text-3xl text-brand-dark text-center mb-4">
+          Come possiamo aiutarti?
+        </h2>
+        <p class="text-center text-brand-text mb-8">
+          Scegli l'opzione che ti riguarda
+        </p>
+        <div class="bg-white rounded-2xl p-8 shadow-lg">
+          <div class="space-y-3">
+            <button type="button" onclick="setMode('owner')" class="w-full text-left px-6 py-5 rounded-xl border-2 border-brand-green bg-brand-green/10 hover:bg-brand-green/20 transition-colors">
+              <span class="block font-semibold text-brand-dark text-lg">Ho un immobile da affidare in gestione</span>
+              <span class="block text-sm text-brand-text mt-1">Richiedi una valutazione gratuita</span>
+            </button>
+            <button type="button" onclick="setMode('guest')" class="w-full text-left px-6 py-5 rounded-xl border-2 border-gray-200 hover:border-brand-tan hover:bg-brand-gray transition-colors">
+              <span class="block font-semibold text-brand-dark text-lg">Cerco un alloggio</span>
+              <span class="block text-sm text-brand-text mt-1">Ti indirizziamo alla sezione dedicata</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROPRIETARIO -->
+      <div data-owner-only>
       <h2 class="font-display text-3xl text-brand-dark text-center mb-4">
         Pronto a guadagnare dal tuo appartamento?
       </h2>
@@ -457,6 +580,7 @@
               <option value="Monolocale">Monolocale</option>
               <option value="Bilocale">Bilocale</option>
               <option value="Trilocale">Trilocale</option>
+              <option value="Quadrilocale">Quadrilocale</option>
               <option value="Altro">Altro</option>
             </select>
           </div>
@@ -514,6 +638,17 @@
             </select>
           </div>
           <div>
+            <label class="block text-sm font-medium text-brand-dark mb-1">In che situazione si trova l'immobile? *</label>
+            <select name="situazione" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg text-brand-dark bg-white">
+              <option value="">Seleziona...</option>
+              <option value="Pronto e disponibile subito">Pronto e disponibile subito</option>
+              <option value="Gia in affitto breve">Gi&agrave; in affitto breve</option>
+              <option value="Affittato a lungo termine">Attualmente affittato a lungo termine</option>
+              <option value="Da arredare o ristrutturare">Da arredare o da ristrutturare</option>
+              <option value="Non ancora acquistato">Non l'ho ancora acquistato, sto valutando</option>
+            </select>
+          </div>
+          <div>
             <label class="block text-sm font-medium text-brand-dark mb-1">Note (opzionale)</label>
             <textarea name="note" rows="2" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg text-brand-dark" placeholder="Informazioni aggiuntive..."></textarea>
           </div>
@@ -526,15 +661,47 @@
       <!-- Contact buttons -->
       <p class="text-center text-brand-text mb-4">Preferisci parlare direttamente?</p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="tel:+393383188155" onclick="this.innerHTML='<svg class=\'w-6 h-6\' fill=\'currentColor\' viewBox=\'0 0 24 24\'><path d=\'M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z\'/></svg> 338 318 8155';" class="w-full sm:w-48 flex items-center justify-center gap-3 px-8 py-4 bg-brand-dark text-white rounded-lg font-semibold text-lg hover:bg-brand-olive transition-colors">
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          Chiama
+        <a href="tel:+393383188155" onclick="mostraNumero(this,'338 318 8155')" class="w-full sm:w-48 flex items-center justify-center gap-3 px-8 py-4 bg-brand-dark text-white rounded-lg font-semibold text-lg hover:bg-brand-olive transition-colors">
+          <svg class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span data-etichetta>Chiama</span>
         </a>
-        <a href="https://wa.me/393383188155" target="_blank" onclick="this.innerHTML='<svg class=\'w-6 h-6\' viewBox=\'0 0 24 24\' fill=\'currentColor\'><path d=\'M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z\'/></svg> 338 318 8155';" class="w-full sm:w-48 flex items-center justify-center gap-3 px-8 py-4 bg-[#25D366] text-white rounded-lg font-semibold text-lg hover:bg-[#128C7E] transition-colors">
-          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp
+        <a href="https://wa.me/393383188155" target="_blank" onclick="mostraNumero(this,'338 318 8155')" class="w-full sm:w-48 flex items-center justify-center gap-3 px-8 py-4 bg-[#25D366] text-white rounded-lg font-semibold text-lg hover:bg-[#128C7E] transition-colors">
+          <svg class="w-6 h-6 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-etichetta>WhatsApp</span>
         </a>
       </div>
+      <div class="text-center mt-6">
+        <button type="button" onclick="resetMode()" class="text-sm text-brand-text underline hover:text-brand-dark">&larr; Torna indietro</button>
+      </div>
+      </div>
+
+      <!-- VIAGGIATORE: nessun form, contatti ufficio prenotazioni -->
+      <div data-guest-only class="text-center">
+        <h2 class="font-display text-2xl text-brand-dark mb-3">Cerchi un alloggio?</h2>
+        <p class="text-brand-text mb-6">
+          Questa pagina &egrave; dedicata ai proprietari di immobili. Per prenotare un soggiorno nei nostri appartamenti trovi tutto nella sezione Viaggiatori.
+        </p>
+        <a href="travelers.html" class="block w-full bg-brand-green hover:bg-brand-olive text-white font-semibold py-4 px-6 rounded-lg text-lg transition-colors mb-6">
+          Vai alla sezione Viaggiatori &rarr;
+        </a>
+        <div class="pt-6 border-t border-gray-200 space-y-3">
+          <p class="text-brand-text mb-4">Oppure contatta l'ufficio prenotazioni:</p>
+          <a href="tel:+393925378957" onclick="mostraNumero(this,'392 537 8957')" class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-brand-dark text-white rounded-lg font-medium hover:bg-brand-olive transition-colors">
+            <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <span data-etichetta>Chiama</span>
+          </a>
+          <a href="https://wa.me/393925378957" target="_blank" onclick="mostraNumero(this,'392 537 8957')" class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] text-white rounded-lg font-medium hover:bg-[#128C7E] transition-colors">
+            <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-etichetta>WhatsApp</span>
+          </a>
+          <a href="mailto:reservations@nakapartments.com" class="w-full flex items-center justify-center gap-2 px-4 py-3 border border-gray-300 text-brand-dark rounded-lg font-medium text-sm sm:text-base hover:bg-brand-gray transition-colors">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span class="break-all">reservations@nakapartments.com</span>
+          </a>
+        </div>
+        <button type="button" onclick="resetMode()" class="mt-6 text-sm text-brand-text underline hover:text-brand-dark">&larr; Torna indietro</button>
+      </div>
+
     </div>
   </section>
 
@@ -542,4 +709,31 @@
   <footer class="py-6 px-6 bg-brand-dark text-white/60 text-sm">
     <div class="max-w-4xl mx-auto text-center">
       <p>© 2025 NaKaApartments - Naka Solutions srl - P. IVA 14133350968</p>
-      <p class="mt-2">Milano, Italia | <a href="/cdn-cgi/l/email-protection#aec7c0c8c1eec0cfc5cfdecfdcdac3cbc0dadd80cdc1c3" class="hover:text-white"><span class="__cf_email__"
+      <p class="mt-2">Milano, Italia | <a href="mailto:info@nakapartments.com" class="hover:text-white">info@nakapartments.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Filtro proprietario / viaggiatore.
+    // Lo stato vive sul <body>; il CSS in testa al file decide cosa mostrare.
+    function setMode(mode) {
+      document.body.classList.remove('mode-none', 'mode-owner', 'mode-guest');
+      document.body.classList.add('mode-' + mode);
+      if (typeof gtag === 'function') {
+        gtag('event', mode === 'owner' ? 'filtro_proprietario' : 'filtro_viaggiatore');
+      }
+    }
+    function resetMode() {
+      document.body.classList.remove('mode-owner', 'mode-guest');
+      document.body.classList.add('mode-none');
+    }
+    // Al click il pulsante sostituisce l'etichetta con il numero (utile da desktop,
+    // dove tel: e wa.me spesso non aprono nulla).
+    function mostraNumero(el, numero) {
+      var et = el.querySelector('[data-etichetta]');
+      if (et) et.textContent = numero;
+    }
+  </script>
+
+</body>
+</html>
